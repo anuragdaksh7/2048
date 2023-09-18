@@ -8,7 +8,7 @@ def mov_left(grid):
 			continue
 		c = 3
 		# k = grid[i]
-		print("k",k)
+		# print("k",k)
 		l = []
 		for j in k:
 			if j:
@@ -32,6 +32,6 @@ def mov_left(grid):
 				k-=1
 		while len(t)!=4:
 			t.append(0)
-		print(t)
+		# print(t)
 		for j in range(4):
 			grid[j][i] = t[j]

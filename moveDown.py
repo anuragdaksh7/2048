@@ -4,16 +4,16 @@ def mov_down(grid):
 			continue
 		c = 3
 		k = grid[i]
-		print(k)
+		# print(k)
 		l = []
 		for j in k:
 			if j:
 				l.append(j)
-		print(l)
+		# print(l)
 		t = []
 		k = len(l)-1
 		while len(l):
-			print(k,l,t)
+			# print(k,l,t)
 			if l[k] == l[k-1] and k>=1:
 				t.append(l[k]*2)
 				try:
