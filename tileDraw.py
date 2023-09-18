@@ -59,8 +59,8 @@ def draw_num(n, pos, font, win):
 		pygame.draw.rect(win, (247,95,59), (x*150+c, y*150+c, 150 - 2*c, 150 - 2*c), 0)
 		win.blit(text_surface, text_rect)
 
-	if n == 128:
-		text = "128"
+	if n >= 128:
+		text = str(n)
 		text_surface = font.render(text, True, (248,247,242))
 		text_rect = text_surface.get_rect()
 		text_rect.center = (150*x+75, 150*y+75)

@@ -4,8 +4,10 @@ import random
 from tileDraw import *
 from moveDown import *
 from moveUp import *
+from moveRight import *
+from moveLeft import *
 from drawGrid import *
-
+from createNewBlock import *
 
 # 4x4 grid
 # arrow keys
@@ -13,14 +15,14 @@ from drawGrid import *
 grid = [
 	[0,0,0,0],
 	[0,0,0,0],
-	[2,2,2,2],
+	[0,0,0,0],
 	[0,0,0,0]
 ]
 while sum([grid[i].count(0) for i in range(4)])>14:
 	x,y = random.randint(0,3),random.randint(0,3)
-	print(x,y)
+	# print(x,y)
 	grid[x][y] = random.choice([2,2,2,2,2,2,4])
-	print(grid)
+	# print(grid)
 
 
 def check_end(grid):
@@ -56,9 +58,30 @@ while run:
 			run = False
 	win.fill((186,172,160))
 	k = 0
-	if pygame.mouse.get_pressed()[0] and k == 0:
-		k = 1
+	# if pygame.mouse.get_pressed()[0] and k == 0:
+	# 	k = 1
+	# 	mov_left(grid)
+	# if pygame.mouse.get_pressed()[2] and k == 0:
+	# 	k = 1
+	# 	mov_down(grid)
+
+	pressed = pygame.key.get_pressed()
+	if pressed[pygame.K_RIGHT]:
+		s = list(grid)
+		mov_right(grid)
+		createNewBlock(grid)
+	if pressed[pygame.K_LEFT]:
+		s = list(grid)
+		mov_left(grid)
+		createNewBlock(grid)
+	if pressed[pygame.K_UP]:
+		s = list(grid)
 		mov_up(grid)
+		createNewBlock(grid)
+	if pressed[pygame.K_DOWN]:
+		s = list(grid)
+		mov_down(grid)
+		createNewBlock(grid)
 	draw_grid(grid)
 	pygame.display.update()
 pygame.quit()
